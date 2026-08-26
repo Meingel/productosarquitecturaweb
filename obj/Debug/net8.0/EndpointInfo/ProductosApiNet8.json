@@ -368,6 +368,19 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "ApiKey": {
+        "type": "apiKey",
+        "description": "Clave de acceso requerida para los endpoints de productos.",
+        "name": "X-API-Key",
+        "in": "header"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "ApiKey": [ ]
+    }
+  ]
 }

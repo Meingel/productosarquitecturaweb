@@ -2556,11 +2556,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\MAS\\Arquitectura de aplicaciones web\\Entrega 1\\ProductosApiNet8\\ProductosApiNet8.csproj",
+      "projectUniqueName": "E:\\GitHub\\productosarquitecturaweb\\ProductosApiNet8.csproj",
       "projectName": "ProductosApiNet8",
-      "projectPath": "E:\\MAS\\Arquitectura de aplicaciones web\\Entrega 1\\ProductosApiNet8\\ProductosApiNet8.csproj",
+      "projectPath": "E:\\GitHub\\productosarquitecturaweb\\ProductosApiNet8.csproj",
       "packagesPath": "C:\\Users\\Janus\\.nuget\\packages\\",
-      "outputPath": "E:\\MAS\\Arquitectura de aplicaciones web\\Entrega 1\\ProductosApiNet8\\obj\\",
+      "outputPath": "E:\\GitHub\\productosarquitecturaweb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 25.2\\Components\\Offline Packages",
