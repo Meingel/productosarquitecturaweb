@@ -4,6 +4,10 @@ using ProductosApiNet8.Data;
 using ProductosApiNet8.Services;
 using System.Security.Cryptography;
 using System.Text;
+// Importo las clases relacionada con la configuración y las operaciones disponibles en GraphQL
+using ProductosApiNet8.GraphQL;
+
+
 
 // Creo el constructor de la aplicación y cargo la configuración disponible.
 var builder = WebApplication.CreateBuilder(args);
@@ -47,6 +51,19 @@ builder.Services.AddDbContext<ProductosDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 // Registro el servicio de productos para inyectarlo en el controlador.
 builder.Services.AddScoped<IProductoService, ProductoService>();
+
+// CONFIGURACIÓN DE GRAPHQL
+// Registra Hot Chocolate como servidor GraphQL.
+//
+// Query contiene las operaciones de lectura.
+//
+// Mutation contiene las operaciones que modifican información:
+// crear, actualizar y eliminar productos.
+builder.Services
+    .AddGraphQLServer()
+    .AddQueryType<Query>()
+    .AddMutationType<Mutation>();
+
 
 // Construyo la aplicación con los servicios registrados.
 var app = builder.Build();
@@ -96,5 +113,11 @@ using (var scope = app.Services.CreateScope())
     await context.Database.EnsureCreatedAsync();
 }
 
+// Publico el endpoint principal de GraphQL en la ruta /graphql.
+// Hot Chocolate utilizara por defecto la rfuta /graphql
+// Desde esta ruta los clientes pofrán ejecutar consultas declarativas sobre la información expuesta por el esquema GraphQL
+app.MapGraphQL();
+
 // Inicio la aplicación y mantengo disponible el servidor HTTP.
 await app.RunAsync();
+
