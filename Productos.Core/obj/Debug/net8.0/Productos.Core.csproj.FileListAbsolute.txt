@@ -1,0 +1,14 @@
+E:\GitHub\productosarquitecturaweb\Productos.Core\bin\Debug\net8.0\Productos.Core.deps.json
+E:\GitHub\productosarquitecturaweb\Productos.Core\bin\Debug\net8.0\Productos.Core.dll
+E:\GitHub\productosarquitecturaweb\Productos.Core\bin\Debug\net8.0\Productos.Core.pdb
+E:\GitHub\productosarquitecturaweb\Productos.Core\obj\Debug\net8.0\Productos.Core.csproj.AssemblyReference.cache
+E:\GitHub\productosarquitecturaweb\Productos.Core\obj\Debug\net8.0\Productos.Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub\productosarquitecturaweb\Productos.Core\obj\Debug\net8.0\Productos.Core.AssemblyInfoInputs.cache
+E:\GitHub\productosarquitecturaweb\Productos.Core\obj\Debug\net8.0\Productos.Core.AssemblyInfo.cs
+E:\GitHub\productosarquitecturaweb\Productos.Core\obj\Debug\net8.0\Productos.Core.csproj.CoreCompileInputs.cache
+E:\GitHub\productosarquitecturaweb\Productos.Core\obj\Debug\net8.0\Productos.Core.sourcelink.json
+E:\GitHub\productosarquitecturaweb\Productos.Core\obj\Debug\net8.0\Productos.Core.dll
+E:\GitHub\productosarquitecturaweb\Productos.Core\obj\Debug\net8.0\refint\Productos.Core.dll
+E:\GitHub\productosarquitecturaweb\Productos.Core\obj\Debug\net8.0\Productos.Core.pdb
+E:\GitHub\productosarquitecturaweb\Productos.Core\obj\Debug\net8.0\ref\Productos.Core.dll
+E:\GitHub\productosarquitecturaweb\Productos.Core\obj\Debug\net8.0\Producto.BA3497DA.Up2Date

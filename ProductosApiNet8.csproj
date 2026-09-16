@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Comparto el modelo y el ORM sin compilar los otros ejecutables dentro de esta aplicación. -->
+    <Compile Remove="Productos.Core/**/*.cs;Productos.Grpc/**/*.cs;Pruebas/**/*.cs;Data/**/*.cs;DTOs/**/*.cs;Models/**/*.cs;Services/**/*.cs" />
+    <Content Remove="Productos.Core/**;Productos.Grpc/**;Pruebas/**" />
+    <None Remove="Productos.Core/**;Productos.Grpc/**;Pruebas/**" />
+    <ProjectReference Include="Productos.Core/Productos.Core.csproj" />
     <PackageReference Include="HotChocolate.AspNetCore" Version="14.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.24">
       <PrivateAssets>all</PrivateAssets>

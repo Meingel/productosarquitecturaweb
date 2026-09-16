@@ -1561,6 +1561,20 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Productos.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.24",
+          "Pomelo.EntityFrameworkCore.MySql": "8.0.3"
+        },
+        "compile": {
+          "bin/placeholder/Productos.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Productos.Core.dll": {}
+        }
       }
     }
   },
@@ -4050,6 +4064,11 @@
         "yarp.reverseproxy.2.2.0.nupkg.sha512",
         "yarp.reverseproxy.nuspec"
       ]
+    },
+    "Productos.Core/1.0.0": {
+      "type": "project",
+      "path": "Productos.Core/Productos.Core.csproj",
+      "msbuildProject": "Productos.Core/Productos.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4057,11 +4076,12 @@
       "HotChocolate.AspNetCore >= 14.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.24",
       "Pomelo.EntityFrameworkCore.MySql >= 8.0.3",
+      "Productos.Core >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\USER\\.nuget\\packages\\": {},
+    "C:\\Users\\Janus\\.nuget\\packages\\": {},
     "C:\\Program Files\\DevExpress 25.2\\Components\\Offline Packages": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
@@ -4071,7 +4091,7 @@
       "projectUniqueName": "E:\\GitHub\\productosarquitecturaweb\\ProductosApiNet8.csproj",
       "projectName": "ProductosApiNet8",
       "projectPath": "E:\\GitHub\\productosarquitecturaweb\\ProductosApiNet8.csproj",
-      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Janus\\.nuget\\packages\\",
       "outputPath": "E:\\GitHub\\productosarquitecturaweb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
@@ -4079,7 +4099,7 @@
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Janus\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 25.2.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -4097,7 +4117,11 @@
         "net8.0": {
           "framework": "net8.0",
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\GitHub\\productosarquitecturaweb\\Productos.Core\\Productos.Core.csproj": {
+              "projectPath": "E:\\GitHub\\productosarquitecturaweb\\Productos.Core\\Productos.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -4155,7 +4179,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

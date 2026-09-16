@@ -14,13 +14,17 @@ public class ProductoService(ProductosDbContext context) : IProductoService
             .Select(producto => ToResponse(producto)).ToListAsync(cancellationToken);
 
     // Busco un producto por id y devuelvo null si no existe.
-    public async Task<ProductoResponse?> ObtenerPorIdAsync(int id, CancellationToken cancellationToken) =>
-        await context.Productos.AsNoTracking().Where(producto => producto.Id == id)
+    public async Task<ProductoResponse?> ObtenerPorIdAsync(int id, CancellationToken cancellationToken)
+    {
+        ProductoValidacion.ValidarId(id);
+        return await context.Productos.AsNoTracking().Where(producto => producto.Id == id)
             .Select(producto => ToResponse(producto)).SingleOrDefaultAsync(cancellationToken);
+    }
 
     // Creo una entidad a partir de los datos validados y la guardo.
     public async Task<ProductoResponse> CrearAsync(ProductoRequest request, CancellationToken cancellationToken)
     {
+        ProductoValidacion.Validar(request);
         // Normalizo los textos antes de persistirlos.
         var producto = new Producto
         {
@@ -39,6 +43,8 @@ public class ProductoService(ProductosDbContext context) : IProductoService
     // Actualizo los datos de una entidad existente.
     public async Task<bool> ActualizarAsync(int id, ProductoRequest request, CancellationToken cancellationToken)
     {
+        ProductoValidacion.ValidarId(id);
+        ProductoValidacion.Validar(request);
         // Busco la entidad rastreada que voy a modificar.
         var producto = await context.Productos.FindAsync([id], cancellationToken);
         // Informo al controlador cuando el id no existe.
@@ -54,6 +60,7 @@ public class ProductoService(ProductosDbContext context) : IProductoService
     // Elimino una entidad existente de la base de datos.
     public async Task<bool> EliminarAsync(int id, CancellationToken cancellationToken)
     {
+        ProductoValidacion.ValidarId(id);
         // Busco la entidad que voy a eliminar.
         var producto = await context.Productos.FindAsync([id], cancellationToken);
         // Informo al controlador cuando el id no existe.

@@ -49,7 +49,7 @@ namespace ProductosApiNet8.GraphQL
         /// Permite cancelar la operación si la solicitus HTTP es interrumpida.
         /// </param>
         /// <returns>
-        /// El producto encontrado o null si no existe un producto con el id indicado.
+        /// El producto encontrado o un error NOT_FOUND si no existe el identificador.
         /// </returns>
         public async Task<ProductoResponse?> GetProductoPorId(
             int id,
@@ -57,7 +57,8 @@ namespace ProductosApiNet8.GraphQL
         {
             // Delego la consulta de productos al servicio de productos.
             // para mantener la separación de responsabilidades de la aplicación
-            return await productoService.ObtenerPorIdAsync(id, cancellationToken);
+            return await productoService.ObtenerPorIdAsync(id, cancellationToken)
+                ?? throw new GraphQLException(ErrorBuilder.New().SetMessage("El producto no existe.").SetCode("NOT_FOUND").Build());
         }
 
     }

@@ -1,0 +1,2 @@
+obj\Debug\net8.0/Productos.cs \
+obj\Debug\net8.0/ProductosGrpc.cs: ../Productos.Grpc/Protos/productos.proto

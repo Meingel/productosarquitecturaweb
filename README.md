@@ -1,5 +1,7 @@
 # ProductosApiNet8
 
+> **Actividad GraphQL y gRPC:** la solución ahora incluye dos aplicaciones backend en .NET con CRUD sobre MySQL y una biblioteca compartida. Consultar [PRUEBAS.md](PRUEBAS.md) para iniciar ambas aplicaciones, probarlas en Postman y ejecutar la verificación automática. Las conexiones y credenciales originales se conservan. Las secciones siguientes documentan la API REST de la actividad anterior.
+
 API RESTful para gestionar productos, desarrollada con ASP.NET Core 8, Entity Framework Core y MySQL.
 
 ## Arquitectura

@@ -61,12 +61,31 @@ builder.Services.AddScoped<IProductoService, ProductoService>();
 // crear, actualizar y eliminar productos.
 builder.Services
     .AddGraphQLServer()
+    .AddErrorFilter<ProductoErrorFilter>()
+    .ModifyRequestOptions(options => options.IncludeExceptionDetails = false)
     .AddQueryType<Query>()
     .AddMutationType<Mutation>();
 
 
 // Construyo la aplicación con los servicios registrados.
 var app = builder.Build();
+
+// Devuelvo errores REST controlados; GraphQL utiliza su propio filtro de errores.
+app.Use(async (context, next) =>
+{
+    try { await next(); }
+    catch (System.ComponentModel.DataAnnotations.ValidationException ex)
+    {
+        context.Response.StatusCode = 400;
+        await context.Response.WriteAsJsonAsync(new { mensaje = ex.Message });
+    }
+    catch (Exception ex) when (!context.Response.HasStarted && !context.RequestAborted.IsCancellationRequested)
+    {
+        app.Logger.LogError(ex, "Error al procesar la solicitud.");
+        context.Response.StatusCode = 500;
+        await context.Response.WriteAsJsonAsync(new { mensaje = "No fue posible completar la operación." });
+    }
+});
 
 // Expongo Swagger únicamente durante el desarrollo local.
 if (app.Environment.IsDevelopment())

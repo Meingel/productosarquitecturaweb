@@ -238,6 +238,8 @@ E:\GitHub\productosarquitecturaweb\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Wo
 E:\GitHub\productosarquitecturaweb\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\GitHub\productosarquitecturaweb\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\GitHub\productosarquitecturaweb\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\GitHub\productosarquitecturaweb\bin\Debug\net8.0\Productos.Core.dll
+E:\GitHub\productosarquitecturaweb\bin\Debug\net8.0\Productos.Core.pdb
 E:\GitHub\productosarquitecturaweb\obj\Debug\net8.0\ProductosApiNet8.csproj.AssemblyReference.cache
 E:\GitHub\productosarquitecturaweb\obj\Debug\net8.0\rpswa.dswa.cache.json
 E:\GitHub\productosarquitecturaweb\obj\Debug\net8.0\ProductosApiNet8.GeneratedMSBuildEditorConfig.editorconfig

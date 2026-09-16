@@ -52,7 +52,7 @@ public class Mutation
     /// Permite cancelar la operación si la solicitud es interrumpida.
     /// </param>
     /// <returns>
-    /// true si el producto fue actualizado; false si no existía.
+    /// true si el producto fue actualizado; un error NOT_FOUND si no existía.
     /// </returns>
     public async Task<bool> ActualizarProducto(
         int id,
@@ -62,11 +62,14 @@ public class Mutation
     {
         // El servicio devuelve true cuando encuentra y actualiza
         // el producto solicitado.
-        return await productoService.ActualizarAsync(
+        var actualizado = await productoService.ActualizarAsync(
             id,
             input,
             cancellationToken
         );
+        if (!actualizado)
+            throw new GraphQLException(ErrorBuilder.New().SetMessage("El producto no existe.").SetCode("NOT_FOUND").Build());
+        return true;
     }
 
     /// <summary>
@@ -82,7 +85,7 @@ public class Mutation
     /// Permite cancelar la operación si la solicitud es interrumpida.
     /// </param>
     /// <returns>
-    /// true si el producto fue eliminado; false si no existía.
+    /// true si el producto fue eliminado; un error NOT_FOUND si no existía.
     /// </returns>
     public async Task<bool> EliminarProducto(
         int id,
@@ -90,9 +93,12 @@ public class Mutation
         CancellationToken cancellationToken)
     {
         // La eliminación también se delega a la capa de servicios.
-        return await productoService.EliminarAsync(
+        var eliminado = await productoService.EliminarAsync(
             id,
             cancellationToken
         );
+        if (!eliminado)
+            throw new GraphQLException(ErrorBuilder.New().SetMessage("El producto no existe.").SetCode("NOT_FOUND").Build());
+        return true;
     }
 }

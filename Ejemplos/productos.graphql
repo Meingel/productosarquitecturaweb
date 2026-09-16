@@ -1,0 +1,51 @@
+# Ejecutar una operación a la vez en Postman → GraphQL.
+# Reemplazar id: 1 por el identificador devuelto en la creación.
+
+mutation Crear {
+  crearProducto(input: {
+    nombre: "Teclado GraphQL"
+    descripcion: "Producto de demostración"
+    precio: 249.90
+  }) {
+    id
+    nombre
+    descripcion
+    precio
+  }
+}
+
+# Demuestro que el cliente selecciona únicamente los campos que necesita.
+query Listar {
+  productos {
+    nombre
+    precio
+  }
+}
+
+query Obtener {
+  productoPorId(id: 1) {
+    id
+    nombre
+    descripcion
+    precio
+  }
+}
+
+mutation Actualizar {
+  actualizarProducto(id: 1, input: {
+    nombre: "Teclado actualizado"
+    descripcion: "Actualización mediante GraphQL"
+    precio: 199.50
+  })
+}
+
+mutation Eliminar {
+  eliminarProducto(id: 1)
+}
+
+# Espero BAD_USER_INPUT; esta operación no debe guardar ningún producto.
+mutation ProbarValidacion {
+  crearProducto(input: { nombre: "", precio: -1 }) {
+    id
+  }
+}

@@ -1,0 +1,32 @@
+syntax = "proto3";
+option csharp_namespace = "Productos.Grpc.Contratos";
+package productos;
+
+// Defino el contrato público; las clases C# se generan durante la compilación.
+service ProductosService {
+  rpc ListarProductos (Vacio) returns (ListaProductos);
+  rpc ObtenerProducto (ProductoId) returns (Producto);
+  rpc CrearProducto (ProductoEntrada) returns (Producto);
+  rpc ActualizarProducto (ActualizarProductoEntrada) returns (Producto);
+  rpc EliminarProducto (ProductoId) returns (ResultadoOperacion);
+  // Mantengo una conexión abierta para enviar cambios realizados mediante esta aplicación gRPC.
+  rpc ObservarCambios (Vacio) returns (stream ProductoEvento);
+}
+message Vacio {}
+message ProductoId { int32 id = 1; }
+message ProductoEntrada {
+  string nombre = 1;
+  optional string descripcion = 2;
+  // Uso texto decimal (por ejemplo "249.90") para conservar precisión monetaria.
+  string precio = 3;
+}
+message Producto {
+  int32 id = 1;
+  string nombre = 2;
+  optional string descripcion = 3;
+  string precio = 4;
+}
+message ListaProductos { repeated Producto productos = 1; }
+message ActualizarProductoEntrada { int32 id = 1; ProductoEntrada producto = 2; }
+message ResultadoOperacion { bool exitoso = 1; string mensaje = 2; }
+message ProductoEvento { string operacion = 1; int32 id = 2; }

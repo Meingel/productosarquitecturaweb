@@ -1,3 +1,5 @@
 <Solution>
   <Project Path="ProductosApiNet8.csproj" />
+  <Project Path="Productos.Core/Productos.Core.csproj" />
+  <Project Path="Productos.Grpc/Productos.Grpc.csproj" />
 </Solution>
